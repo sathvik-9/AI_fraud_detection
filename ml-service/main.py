@@ -6,7 +6,7 @@ app = FastAPI()
 model = joblib.load('fraud_model.pkl')
 
 @app.post("/predict")
-def predict_fraud(transaction: dict):
+def predict_fraud(data: dict):
     features = np.array(list(data.values())).reshape(1,-1)
     probability = model.predict_proba(features)[0][1]
     return {

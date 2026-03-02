@@ -1,2 +1,18 @@
+Id = "gitigonre_root"
+
 ml-service/data
 *.csv
+
+node_modules/
+package-lock.json
+
+venv/
+__pycache__/
+*.pyc
+
+.env
+
+*.pkl
+
+.DS_Store
+Thumbs.db
