@@ -10,8 +10,8 @@ export const getFraudExplanation = async(transaction, riskData) => {
     // console.log("Key Length:", rawKey.length);
     // console.log("KEY Char codes:", rawKey.split("").map(c => c.charCodeAt(0)));
 
-    const apiKey = "AIzaSyC1qX7ehyXuqIweY0X8K_9Ox8V3BOnRRdk";
-    // console.log("Trimmed Key Length:", apiKey.length);
+    const apiKey = process.env.GEMINI_API_KEY.trim();
+    console.log("Trimmed Key Length:", apiKey);
 
 
 
@@ -54,6 +54,7 @@ export const getFraudExplanation = async(transaction, riskData) => {
 
     const text = response.data.candidates[0].content.parts[0].text;
     const cleanText = text.replace(/```json|```/g, "").trim();
+    console.log("Working...")
     return JSON.parse(cleanText);
     // return JSON.parse(text);
     // const result = await model.generateContent(prompt);
