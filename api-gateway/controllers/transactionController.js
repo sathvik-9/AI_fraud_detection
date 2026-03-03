@@ -46,7 +46,7 @@ export const getFraudStats = async (req, res) =>{
         const fraud_count = await Transaction.countDocuments({is_fraud:true});
         const high_risk = await Transaction.countDocuments({risk_level: "HIGH"});
         res.json({
-            total_transacitons: total,
+            total_transactions: total,
             fraud_transactions: fraud_count,
             fraud_percentage: total > 0 ? ((fraud_count/total)*100).toFixed(2) : 0,
             high_risk: high_risk,
